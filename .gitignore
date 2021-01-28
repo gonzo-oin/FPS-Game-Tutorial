@@ -60,3 +60,11 @@ crashlytics-build.properties
 
 FPS Game/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
 FPS Game/.idea
+FPS Game/Temp
+FPS Game/Logs
+FPS Game/obj
+FPS Game/Assets/Plugins
+FPS Game/Library/Artifacts
+FPS Game/Library/ShaderCache
+FPS Game/Library/ScriptAssemblies
+FPS Game/Library/StateCache

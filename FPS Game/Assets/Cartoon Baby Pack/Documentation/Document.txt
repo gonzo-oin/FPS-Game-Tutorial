@@ -1,0 +1,22 @@
+DOCUMENTATION
+    3D Cartoon Baby
+A low-poly Cartoon Baby Character with handpainted high quality texture.This character use AR,VR,Game eingne and any different projects.The Character humanoid mecanim system rig.Fully supports mecanim humanoid animation system.I hope you like this game ready asset.
+Technical Details:
+Model-Low poly,Clean topology and completely UVunwrapped model.
+FBX version is 2016 but older versions can be provided on request.
+Polycount-Virtex:5353,faces:5312,Tris:10368
+Textures- 2 different colour textures,Cartoon Baby_01 and Cartoon Baby 02.character is using 2048*2048 diffuse textures and one material for the character.Textures format PNG.
+Rig-humanoid mecanim system rig.Fully supports mecanim humanoid animation system.
+Animation-33 Root Motion animation.
+Walk forward,walk back,walk left,walk right,idle_01,Idle_02,Idle_03,Attack_01,Attack_02,Attack_03,Dying,Dying_02,Stand_Up,Sitting,Run Forward,Standard Run,Run back,Run Left,Run Right,Running Slide,Talking,Jump,Jump to run,Waving Gesture,Looking around,Dancie_01,Dance_02,Dance_03,Happy_Walk Forward,Happy Walk Back,Sitting,Clapping,Standing Clap.
+
+
+Note:Unity Version 2019.2 or higher.Feel free to contact me anything about this project.
+Contact:
+Website-https://www.artstation.com/natural2020
+Mail id-natural.creative2020@gmail.com
+Animation Link-https://www.youtube.com/watch?v=Z7vk3iV02Eo&feature=youtu.be
+
+
+
+

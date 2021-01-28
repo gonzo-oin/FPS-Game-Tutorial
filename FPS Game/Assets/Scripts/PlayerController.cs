@@ -2,12 +2,15 @@
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
 	[SerializeField] GameObject cameraHolder;
+	
+	[SerializeField] Animator animator;
 
 	[SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
 
@@ -115,8 +118,27 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
 	void Move()
 	{
-		Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+		Vector3 moveDir = new Vector3(
+			Input.GetAxisRaw("Horizontal"), 
+			0, 
+			Input.GetAxisRaw("Vertical"
+			)).normalized;
 
+		if (moveDir.x > 0)
+		{
+			animator.Play("Walk_Left");
+		}else if (moveDir.x < 0)
+		{
+			animator.Play("Walk_Right");
+		}else if (moveDir.z < 0)
+		{
+			animator.Play("Walk_Backward");
+		}
+		else if (moveDir.z > 0)
+		{
+			animator.Play("Walk_Forward");
+		}
+		
 		moveAmount = Vector3.SmoothDamp(moveAmount, moveDir * (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), ref smoothMoveVelocity, smoothTime);
 	}
 
@@ -124,6 +146,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 	{
 		if(Input.GetKeyDown(KeyCode.Space) && grounded)
 		{
+			animator.Play("Jump_to_Run");
 			rb.AddForce(transform.up * jumpForce);
 		}
 	}
