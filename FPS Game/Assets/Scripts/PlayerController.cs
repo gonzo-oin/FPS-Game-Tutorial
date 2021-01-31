@@ -7,6 +7,7 @@ using System.IO;
 using TMPro;
 using System.Linq;
 using Doozy.Engine;
+using Doozy.Engine.Soundy;
 using UnityEngine;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
@@ -388,7 +389,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         else if (changedProps.ContainsKey("audioClipIndex")) {
             // Play sound for other players
             if (!PV.IsMine && targetPlayer == PV.Owner) {
-                this.playAudioClip((string) changedProps["audioClipType"], false, (int) changedProps["audioClipIndex"]);
+                var audioClipIndex = this.audioManager_Baby.PlayAudioClip(changedProps["audioClipType"].ToString(), (int)changedProps["givenClipIndex"]);
+                SoundyManager.Play(audioClipIndex, transform.position);
             }
         }
         else if (changedProps.ContainsKey("malus"))
@@ -520,12 +522,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     }
 
     public void playAudioClip (string audioClipType, bool spreadInLan, int givenClipIndex = -1) {
-        int audioClipIndex = this.audioManager_Baby.playAudioClip(audioClipType, givenClipIndex);
+        
+        var audioClipIndex = this.audioManager_Baby.PlayAudioClip(audioClipType, givenClipIndex);
+        SoundyManager.Play(audioClipIndex, transform.position);
         // givenClipIndex is set only when it's not the local player
         if(spreadInLan) {
             Hashtable hash = new Hashtable();
             hash.Add("audioClipIndex", audioClipIndex);
             hash.Add("audioClipType", audioClipType);
+            hash.Add("audioClipPosition", transform.position);
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
 		}
     }
